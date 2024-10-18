@@ -1,20 +1,86 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from "react-native";
+import { SafeAreaView } from "react-native-web";
 
-export default function App() {
+const LoginScreen = () => {
   return (
+  <SafeAreaView style={styles.background}>
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Image
+        source={{ uri: 'https://cdn-icons-png.flaticon.com/512/711/711769.png'}}
+        style={styles.logo}
+      />
+      <View style={styles.inputView}>
+        <TextInput
+          style={styles.inputText}
+          placeholder="Login"
+          placeholderTextColor='#003f5c'
+        />
+      </View>
+      <View style={styles.inputView}>
+        <TextInput
+          style={styles.inputText}
+          placeholder="Senha"
+          placeholderTextColor='#003f5c'
+          secureTextEntry={true}
+        />
+      </View>
+      <TouchableOpacity style={styles.loginBtn}>
+        <Text style={styles.loginText}>Login</Text>
+      </TouchableOpacity>
     </View>
+  </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  logo: {
+    width: 150,
+    height: 150,
+    marginBotton: 40,
+  },
+  inputView: {
+    width: '80%',
+    backgroundColor: '#fff',
+    borderRadius: 25,
+    height: 50,
+    marginBotton: 20,
+    justifyContent: "center",
+    padding: 20,
+    flexDirection: "row",
+    alignItems: 'center',
+    borderColor: 'black',
+  },
+  inputText: {
+    height: 50,
+    color: "black",
+    flex: 1,
+    borderColor: "Black",
+  },
+  loginBtn: {
+    width: '80%',
+    backgroundColor: '#fb5b5a',
+    borderRadius: 25,
+    height: 50,
+    alignItems: "center",
+    justifyContent: 'center',
+    marginTop: 40,
+    marginBottom: 10,
+  },
+  loginText: {
+    color: 'white',
+  },
+  background: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+    backgroundColor: '#f5f5dc'
+  },
 });
+
+export default LoginScreen;
